@@ -7,7 +7,7 @@ var time = new Date();
 api.get("/stories/top", function (req, res) {
   var currentTime = new Date();
   var dateDiff = currentTime.getMinutes() - time.getMinutes();
-  if (storyArr.length > 0 && dateDiff < 5) {
+  if (storyArr.length > 0 && dateDiff < 15) {
     res.send(storyArr);
 
   }

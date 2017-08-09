@@ -5,6 +5,9 @@ ul{
 }
 
 body{
-  min-width:100vw;
-  min-height:100vh;
+}
+
+a {
+  display: inline-block !important;
+  padding-left: 20px !important;
 }
