@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+ul{
+  margin-top:0px !important;
+  margin-bottom:0px !important;
+}
+
+body{
+  min-width:100vw;
+  min-height:100vh;
+}

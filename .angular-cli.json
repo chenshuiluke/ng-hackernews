@@ -19,6 +19,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "",
       "styles": [
+        "../node_modules/hack/dist/hack.css",
+        "../node_modules/hack/dist/dark.css",
         "styles.css"
       ],
       "scripts": [],
