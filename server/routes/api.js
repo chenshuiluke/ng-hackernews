@@ -24,6 +24,20 @@ api.get("/stories/top", function (req, res) {
       storyArr.push(story);
     }
   }
+  setInterval(function () {
+    var stories = hn.getTopStories();
+    var storyArray = [];
+    for (var counter = 0; counter <= 10; counter++) {
+      var element = stories[counter];
+      if (counter == 10) {
+        time = new Date();
+        storyArr = storyArray;
+        return;
+      }
+      var story = hn.getItem(element);
+      storyArray.push(story);
+    }
+  }, 60000)
 
 });
 
