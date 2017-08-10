@@ -5,10 +5,14 @@ import { AppComponent } from './app.component';
 import { TopStoriesComponent } from './top-stories/top-stories.component';
 import { ServiceProvider} from "./providers/service.provider"
 import { HttpModule} from "@angular/http";
+import { CommentComponent } from './comment/comment.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TopStoriesComponent
+    TopStoriesComponent,
+    CommentComponent,
+    CommentListComponent
   ],
   imports: [
     BrowserModule,

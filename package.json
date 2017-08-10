@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start-app": "ng build && node server.js"
+    "start-app": "ng build && node server.js",
+    "start-app-prod": "ng build --prod --env=prod --no-aot && node server.js"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +23,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
+    "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "core-js": "^2.4.1",
     "express": "^4.15.4",
@@ -30,6 +32,7 @@
     "mongodb": "^2.2.31",
     "morgan": "^1.8.2",
     "rxjs": "^5.1.0",
+    "underscore": "^1.8.3",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {

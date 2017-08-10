@@ -1,5 +1,4 @@
-import { Comment} from "./comment.model";
-export class Story{
+export class Comment{
 
   by:string;
   descendants:number;
@@ -25,7 +24,7 @@ export class Story{
     this.url = result.url;
     this.text = result.text;
 
-    if (result.comments !== undefined) {
+    if (result.comments) {
       this.comments = [];
       for (var counter = 0; counter < result.comments.length; counter++) {
         this.comments.push(new Comment(result.comments[counter]));
