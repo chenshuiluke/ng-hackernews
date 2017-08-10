@@ -44,6 +44,7 @@ function retrieveTopPosts() {
                     storyArray = [];
                     console.log("Stories updated");
                     clearInterval(interval);
+                    setTimeout(retrieveTopPosts, 5000);
                   });
 
 
@@ -161,7 +162,5 @@ process.on( 'unhandledRejection', function( error, promise ){
 console.log( error.stack )
 });
 
-
-setInterval(retrieveTopPosts, 600000);
 
 module.exports = retrieveTopPosts();
