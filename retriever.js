@@ -36,15 +36,16 @@ function retrieveTopPosts() {
                   if (err) throw err;
                   if (delOK) console.log("Collection deleted");
                   console.log("Updating story collection");
-
+                  setTimeout(retrieveTopPosts, 60000);
                   db.collection("stories").insertMany(storyArray, {
                     ordered: true
                   }, function (err, db) {
+                    console.log(err);
                     db.close();
                     storyArray = [];
                     console.log("Stories updated");
                     clearInterval(interval);
-                    setTimeout(retrieveTopPosts, 5000);
+
                   });
 
 
