@@ -3,6 +3,22 @@ var express = require("express");
 var api = require("./server/routes/api");
 var logger = require("morgan");
 var path = require("path");
+var fs = require('fs');
+var spawn = require('child_process').spawn;
+var out = fs.openSync('./logs/retriever.js.log', 'a');
+var err = fs.openSync('./logs/retriever.js.error.log', 'a');
+
+var child = spawn(__dirname + '/retriever.sh');
+
+
+child.stdout.on('data', function (data) {
+  console.log('story retriever: ' + data);
+});
+
+child.on('error', function (err) {
+  console.log(err);
+  console.log('Failed to start child process.');
+});
 
 var app = express();
 

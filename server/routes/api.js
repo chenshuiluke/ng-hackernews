@@ -1,50 +1,50 @@
 var express = require("express");
-var hn = require("hackernews-api");
+var config = require("./../../config");
+var MongoClient = require('mongodb').MongoClient;
 var api = express.Router();
 
 var storyArr = [];
 var time = new Date();
-api.get("/stories/top", function (req, res) {
-  var currentTime = new Date();
-  var dateDiff = currentTime.getMinutes() - time.getMinutes();
-  if (storyArr.length > 0 && dateDiff < 15) {
-    res.send(storyArr);
 
+
+var url = config.mongo_url;
+
+MongoClient.connect(url, function (err, db) {
+  if (err) {
+    db.close();
+    throw err;
   }
-  else {
-    var stories = hn.getTopStories();
-    for (var counter = 0; counter <= stories.length; counter++) {
-      var element = stories[counter];
-      if (counter == stories.length) {
-        time = new Date();
-        res.send(storyArr);
-        return;
-      }
-      var story = hn.getItem(element);
-      storyArr.push(story);
+  console.log("Database created!");
+  db.createCollection("stories", function (err, res) {
+    if (err) {
+      throw err;
     }
-  }
-  setInterval(function () {
+    console.log("Collection created");
+    db.close();
+  });
 
-      var stories = hn.getTopStories();
-      var storyArray = [];
-      for (var counter = 0; counter <= stories.length; counter++) {
-        try {
-          var element = stories[counter];
-          if (counter == stories.length) {
-            time = new Date();
-            storyArr = storyArray;
-            return;
-          }
-          var story = hn.getItem(element);
-          storyArray.push(story);
-        }
-        catch (err) {
-          console.log(err);
-        }
+});
+
+api.get("/stories/top", function (req, res) {
+  MongoClient.connect(url, function (err, db) {
+    if (err) {
+      db.close();
+      res.send([]);
+      throw err;
+    }
+    var collection = db.collection("stories");
+    collection.find().toArray(function (err, docs) {
+      if (err) {
+        console.log(err);
+        res.send([]);
+      }
+      else {
+        res.send(docs);
       }
 
-  }, 600000)
+    });
+
+  });
 
 });
 
