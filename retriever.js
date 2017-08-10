@@ -46,7 +46,9 @@ function retrieveTopPosts() {
           if (err) console.log(err);
           if (delOK) console.log("Collection deleted");
           console.log("Updating story collection");
-          setTimeout(retrieveTopPosts, 5000);
+          setTimeout(function () {
+            retrieveTopPosts();
+          }, 5000);
           db.collection("stories").insertMany(storyArray, {
             ordered: true
           }, function (err, db) {
