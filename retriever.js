@@ -35,7 +35,7 @@ function retrieveTopPosts() {
         }
         else {
           console.log("Getting item: " + counter);
-          var story = hn.getItem(element);
+          var story = recursivelyGetItem(element);
           storyArray.push(story);
         }
 
@@ -51,6 +51,27 @@ function retrieveTopPosts() {
 
 }
 
-setInterval(retrieveTopPosts, 600000);
+function recursivelyGetItem(itemId) {
+  var item = hn.getItem(itemId);
+  //console.log("Descendants: " + item.descendants);
+  if (item.descendants === 0 || item.descendants === undefined) {
+    return item;
+  }
+  else {
+    item.retrieved_kids = [];
+    for (var counter = 0; counter < item.kids.length; counter++) {
+      console.log("Getting kid of id " + item.kids[counter] + " from parent of id: " + itemId);
+      var kid = recursivelyGetItem(item.kids[counter]);
+      if (kid != undefined) {
+        item.retrieved_kids.push(kid);
+      }
+
+      console.log("Got kid of id " + item.kids[counter] + " from parent of id: " + itemId);
+    }
+    return item;
+  }
+}
+
+setInterval(retrieveTopPosts, 6000000);
 
 module.exports = retrieveTopPosts();

@@ -2,9 +2,14 @@
   <span class="loading"></span>
   Loading&hellip;
 </div>
-<ul *ngIf="stories">
-  <li *ngFor="let story of stories">
-    <a [href]="story.url" [target]="'blank'">{{story.title}}</a>
-  </li>
-</ul>
+<div *ngIf="stories">
+  <div *ngFor="let story of stories">
+    <a [href]="story.url" class="btn btn-success btn-block btn-ghost" [target]="'blank'">{{story.title}}</a>
+    <ul *ngIf="story.retrieved_kids">
+      <li *ngFor="let story_kid of story.retrieved_kids">{{story_kid.name}}</li>
+    </ul>
+  </div>
+
+
+</div>
 

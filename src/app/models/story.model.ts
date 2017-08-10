@@ -9,6 +9,7 @@ export class Story{
   title: string;
   type: string;
   url:string;
+  retrieved_kids: any[];
 
   constructor(result:any){
     this.by = result.by;
@@ -20,5 +21,12 @@ export class Story{
     this.title = result.title;
     this.type = result.type;
     this.url = result.url;
+
+    if (result.retrieved_kids !== undefined) {
+      this.retrieved_kids = [];
+      for (var counter = 0; counter < result.retrieved_kids.length; counter++) {
+        this.retrieved_kids.push(new Story(result.retrieved_kids[counter]));
+      }
+    }
   }
 }
