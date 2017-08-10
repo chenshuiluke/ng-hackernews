@@ -1,7 +1,10 @@
-<p *ngIf="!stories">Loading stories...</p>
-<ol *ngIf="stories">
+<div *ngIf="!stories" class="alert alert-info">
+  <span class="loading"></span>
+  Loading&hellip;
+</div>
+<ul *ngIf="stories">
   <li *ngFor="let story of stories">
     <a [href]="story.url" [target]="'blank'">{{story.title}}</a>
   </li>
-</ol>
+</ul>
 
