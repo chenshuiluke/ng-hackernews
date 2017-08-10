@@ -5,8 +5,6 @@ var logger = require("morgan");
 var path = require("path");
 var fs = require('fs');
 var spawn = require('child_process').spawn;
-var out = fs.openSync('./logs/retriever.js.log', 'a');
-var err = fs.openSync('./logs/retriever.js.error.log', 'a');
 
 var child = spawn(__dirname + '/retriever.sh');
 
