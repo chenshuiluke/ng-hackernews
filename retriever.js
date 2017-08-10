@@ -21,12 +21,14 @@ function retrieveTopPosts() {
       if (err) throw err;
       console.log("Connected to mongodb");
       var storyArray = [];
+      var queue = 0;
+      var previousReq = null;
       response.forEach(function(element, index, arr){
         try {
           if (index == arr.length - 1) {
             interval = setInterval(function(){
               console.log(storyArray.length + " / " + arr.length);
-              if( storyArray.length >= arr.length - 100){
+              if (storyArray.length >= arr.length) {
                 storyArray.sort(itemSort);
                 time = new Date();
 
@@ -52,9 +54,25 @@ function retrieveTopPosts() {
           }
           else {
             //console.log("Getting item: " + index);
-            recursivelyGetItem(element).then(function(story){
-              storyArray.push(story);
-            });
+            if (queue < 10) {
+              queue++;
+              recursivelyGetItem(element).then(function (story) {
+                storyArray.push(story);
+                queue--;
+              });
+            }
+            else {
+              var queue_interval = setInterval(function () {
+                if (queue < 10) {
+                  queue++;
+                  recursivelyGetItem(element).then(function (story) {
+                    storyArray.push(story);
+                    queue--;
+                  });
+                }
+              }, 10000)
+            }
+
 
           }
 
@@ -138,10 +156,10 @@ function recursivelyGetItem(itemId) {
 }
 
 process.on( 'unhandledRejection', function( error, promise ){
-  console.log( 'UPR: ' + promise + ' with ' + error )
+  console.log('UPR: ' + promise + ' with ' + error);
   console.log("err: " + error);
 console.log( error.stack )
-} )
+});
 
 
 
