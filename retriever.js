@@ -162,7 +162,6 @@ console.log( error.stack )
 });
 
 
-
-setInterval(retrieveTopPosts, 6000000);
+setInterval(retrieveTopPosts, 300000);
 
 module.exports = retrieveTopPosts();
