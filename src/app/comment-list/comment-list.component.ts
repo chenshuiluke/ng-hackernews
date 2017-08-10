@@ -1,5 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
-import { Comment} from "../models/comment.model";
+import {Component, Input, OnInit} from '@angular/core';
+import {Comment} from "../models/comment.model";
+
 @Component({
   selector: 'comment-list',
   templateUrl: './comment-list.component.html',
@@ -7,6 +8,7 @@ import { Comment} from "../models/comment.model";
 })
 export class CommentListComponent implements OnInit {
   @Input() comments:Comment[];
+  shown: boolean = false;
   constructor() { }
 
   ngOnInit() {

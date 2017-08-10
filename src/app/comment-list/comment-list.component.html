@@ -1,4 +1,12 @@
-<ul>
+<a class="btn btn-warning" (click)="shown = !shown">
+  <span *ngIf="!shown">
+    +
+  </span>
+  <span *ngIf="shown">
+    -
+  </span>
+</a>
+<ul *ngIf="shown">
   <li *ngFor="let comment of comments">
     <comment [comment]="comment"></comment>
   </li>

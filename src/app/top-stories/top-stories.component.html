@@ -4,10 +4,13 @@
 </div>
 <div *ngIf="stories">
   <div *ngFor="let story of stories">
-    <a [href]="story.url" class="btn btn-success btn-block btn-ghost" [target]="'blank'">{{story.title}}</a>
+
+    <a [href]="story.url" class="btn btn-info btn-block btn-ghost" [target]="'blank'">{{story.title}}</a>
+
     <comment-list [comments]="story.comments"></comment-list>
+
   </div>
 
-
+  <hr/>
 </div>
 
