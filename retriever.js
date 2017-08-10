@@ -14,6 +14,18 @@ var itemSort = function(a,b){
   }
 };
 
+Promise.each = function (arr, fn) { // take an array and a function
+  // invalid input
+  if (!Array.isArray(arr)) return Promise.reject(new Error("Non array passed to each"));
+  // empty case
+  if (arr.length === 0) return Promise.resolve();
+  return arr.reduce(function (prev, cur) {
+    return prev.then(function () {
+      fn(cur)
+    })
+  }, Promise.resolve());
+};
+
 function retrieveTopPosts() {
   console.log("Getting top stories");
   getTop().then(function(response){
@@ -23,67 +35,44 @@ function retrieveTopPosts() {
       var storyArray = [];
       var queue = 0;
       var previousReq = null;
-      response.forEach(function(element, index, arr){
-        try {
-          if (index == arr.length - 1) {
-            interval = setInterval(function(){
-              console.log(storyArray.length + " / " + arr.length);
-              if (storyArray.length >= arr.length) {
-                storyArray.sort(itemSort);
-                time = new Date();
+      var count = 0;
+      var promiseArr = [];
 
-                db.collection("stories").drop(function (err, delOK) {
-                  if (err) throw err;
-                  if (delOK) console.log("Collection deleted");
-                  console.log("Updating story collection");
-                  setTimeout(retrieveTopPosts, 60000);
-                  db.collection("stories").insertMany(storyArray, {
-                    ordered: true
-                  }, function (err, db) {
-                    console.log(err);
-                    db.close();
-                    storyArray = [];
-                    console.log("Stories updated");
-                    clearInterval(interval);
+      var refresh = function () {
+        storyArray.sort(itemSort);
+        time = new Date();
 
-                  });
+        db.collection("stories").drop(function (err, delOK) {
+          if (err) console.log(err);
+          if (delOK) console.log("Collection deleted");
+          console.log("Updating story collection");
+          setTimeout(retrieveTopPosts, 5000);
+          db.collection("stories").insertMany(storyArray, {
+            ordered: true
+          }, function (err, db) {
+            console.log(err);
+            db.close();
+            storyArray = [];
+            console.log("Stories updated");
+            clearInterval(interval);
 
+          });
+        });
+      };
 
-                });
-              }
-            }, 5000);
-
-          }
-          else {
-            //console.log("Getting item: " + index);
-            if (queue < 10) {
-              queue++;
-              recursivelyGetItem(element).then(function (story) {
-                storyArray.push(story);
-                queue--;
-              });
+      response.reduce(function (accumulated, current, index) {
+          return accumulated.then(function (story) {
+            if (story) {
+              storyArray.push(story);
             }
-            else {
-              var queue_interval = setInterval(function () {
-                if (queue < 10) {
-                  queue++;
-                  recursivelyGetItem(element).then(function (story) {
-                    storyArray.push(story);
-                    queue--;
-                  });
-                }
-              }, 3000)
-            }
+            console.log("Getting " + current);
 
-
-          }
-
-        }
-        catch (err) {
-          console.log("Error " + err);
-        }
-      });
-
+            return recursivelyGetItem(current)
+          })
+        },
+        Promise.resolve())
+        .then(refresh)
+        .catch(refresh);
     });
   });
 }
@@ -96,7 +85,7 @@ function getTop(){
         resolve(response.data);
       })
       .catch(function(err){
-        console.log("Error " + err);
+        console.log("Get Top Error " + err);
         reject(err);
       });
 
@@ -111,7 +100,7 @@ function getItem(id){
         resolve(response.data);
       })
       .catch(function(err){
-        console.log("Error " + err);
+        console.log("Get Item Error " + err);
         reject(err);
       });
 
@@ -135,20 +124,20 @@ function recursivelyGetItem(itemId) {
             }
 
             //console.log("Got kid of id " + item.kids[index] + " from parent of id: " + itemId);
-            if(index == arr.length - 1){
+            if (index == arr.length - 1) {
               item.comments.sort(itemSort);
               resolve(item)
             }
           })
             .catch(function(err){
-              console.log("Error "+ err);
+              console.log("Get Children Error " + err);
               reject(err);
             });
         });
       }
     })
       .catch(function(err){
-        console.log("Error "+ err);
+        console.log("Recursive Item Error " + err);
         reject(err);
       });
   })
