@@ -70,7 +70,7 @@ function retrieveTopPosts() {
                     queue--;
                   });
                 }
-              }, 10000)
+              }, 3000)
             }
 
 
@@ -162,6 +162,6 @@ console.log( error.stack )
 });
 
 
-setInterval(retrieveTopPosts, 300000);
+setInterval(retrieveTopPosts, 600000);
 
 module.exports = retrieveTopPosts();
