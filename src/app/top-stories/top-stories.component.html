@@ -2,7 +2,7 @@
   Loading&hellip;
 </div>
 <div *ngIf="stories">
-  <div *ngFor="let story of stories">
+  <div *ngFor="let story of stories" class="animated" animateOnScroll animationName="fadeInUp">
 
     <a [href]="story.url" [target]="'blank'">{{story.title}}</a>
 

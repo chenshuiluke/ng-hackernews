@@ -1,4 +1,4 @@
-<div *ngIf="comments" class="comment-button">
+<div *ngIf="comments" class="comment-button" data-aos="fade-up">
   <button class="button-clear " (click)="shown = !shown">
     <span *ngIf="!shown">
       show
@@ -11,5 +11,6 @@
 </div>
 
 <dl *ngIf="shown">
-  <dt comment *ngFor="let comment of comments" [comment]="comment"></dt>
+  <dt comment *ngFor="let comment of comments" [comment]="comment" class="animated" animateOnScroll
+      animationName="fadeInUp"></dt>
 </dl>

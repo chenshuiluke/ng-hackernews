@@ -47,7 +47,7 @@ function retrieveTopPosts() {
           console.log("Updating story collection");
           setTimeout(function () {
             retrieveTopPosts();
-          }, 5000);
+          }, 1800000);
           db.collection("stories").insertMany(storyArray, {
             ordered: true
           }, function (err) {

@@ -1,4 +1,5 @@
-import { Comment} from "./comment.model";
+import {Comment} from "./comment.model";
+
 export class Story{
 
   by:string;
@@ -24,6 +25,10 @@ export class Story{
     this.type = result.type;
     this.url = result.url;
     this.text = result.text;
+
+    if (this.url == undefined) {
+      this.url = "https://news.ycombinator.com/item?id=" + this.id;
+    }
 
     if (result.comments !== undefined) {
       this.comments = [];

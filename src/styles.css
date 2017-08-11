@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 ul{
-  margin-top:0px !important;
-  margin-bottom:0px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 body{
@@ -12,14 +12,10 @@ a {
   /*margin-left: 20px !important;*/
 }
 
-.btn-spaced {
-  margin: 5px;
-}
-
-.comment-button {
-  position: absolute;
-  right: 0;
-}
+/*.comment-button {*/
+/*position: absolute;*/
+/*right: 0;*/
+/*}*/
 
 comment-list {
   width: 100%;

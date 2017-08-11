@@ -20,9 +20,11 @@
       "prefix": "",
       "styles": [
         "styles.css",
+        "animate.css",
         "../node_modules/milligram/dist/milligram.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
