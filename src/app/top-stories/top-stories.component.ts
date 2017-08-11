@@ -15,7 +15,7 @@ export class TopStoriesComponent implements OnInit {
   storyStream: Subject<Story> = new Subject();
   stories: Story[];
   constructor(private storiesService:StoriesService) {
-    Observable.zip(this.storiesService.topStories, Observable.timer(0, 500), (story, i) => {
+    Observable.zip(this.storiesService.topStories, Observable.timer(0, 100), (story, i) => {
       return story;
     })
       .subscribe((story) => {
