@@ -39,7 +39,6 @@ function retrieveTopPosts() {
       var promiseArr = [];
 
       var refresh = function () {
-        storyArray.sort(itemSort);
         time = new Date();
 
         db.collection("stories").drop(function (err, delOK) {
@@ -51,26 +50,31 @@ function retrieveTopPosts() {
           }, 5000);
           db.collection("stories").insertMany(storyArray, {
             ordered: true
-          }, function (err, db) {
+          }, function (err) {
             console.log(err);
             db.close();
             storyArray = [];
             console.log("Stories updated");
-            clearInterval(interval);
 
           });
         });
       };
 
       response.reduce(function (accumulated, current, index) {
-          return accumulated.then(function (story) {
+          return accumulated
+            .then(function (story) {
             if (story) {
               storyArray.push(story);
             }
-            console.log("Getting " + current);
+              console.log("Getting " + index);
 
             return recursivelyGetItem(current)
-          })
+            })
+            .catch(function () {
+              console.log("Getting " + current);
+
+              return recursivelyGetItem(current)
+            })
         },
         Promise.resolve())
         .then(refresh)

@@ -1,11 +1,5 @@
-<div class="card">
-  <header class="card-header">
-    {{comment.by}}
-  </header>
-  <div class="card-content">
-    <div class="inner" [innerHTML]="comment.text">
+<p class="inner" [innerHTML]="comment.text">
 
-    </div>
-  </div>
-</div>
+</p>
+<p>- {{comment.by}}</p>
 <comment-list *ngIf="comment.comments" [comments]="comment.comments"></comment-list>

@@ -1,13 +1,15 @@
 <a class="btn btn-warning" (click)="shown = !shown">
   <span *ngIf="!shown">
-    +
+    show
   </span>
   <span *ngIf="shown">
-    -
+    hide
   </span>
 </a>
 <ul *ngIf="shown">
   <li *ngFor="let comment of comments">
+    <hr/>
     <comment [comment]="comment"></comment>
+    <hr/>
   </li>
 </ul>
