@@ -27,7 +27,11 @@ export class Comment{
     if (result.comments) {
       this.comments = [];
       for (var counter = 0; counter < result.comments.length; counter++) {
-        this.comments.push(new Comment(result.comments[counter]));
+        var comment: any = result.comments[counter];
+        if (typeof comment.text != "undefined" && typeof comment.by != "undefined") {
+          this.comments.push(new Comment(comment));
+        }
+
       }
     }
   }
