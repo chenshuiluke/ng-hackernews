@@ -4,7 +4,7 @@
 <div *ngIf="stories">
   <div *ngFor="let story of stories">
 
-    <a [href]="story.url" [target]="'blank'">{{story.title}}</a>
+    <a [href]="story.url" [target]="'_blank'">{{story.title}}</a>
 
     <comment-list [comments]="story.comments"></comment-list>
   </div>
