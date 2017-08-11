@@ -11,9 +11,12 @@ import 'rxjs/add/operator/delay';
 })
 export class TopStoriesComponent implements OnInit {
   storyStream: Subject<Story> = new Subject();
-  stories: Story[] = [];
+  stories: Story[];
   constructor(private storiesService:StoriesService) {
     this.storiesService.topStories.delay(500).subscribe((res) => {
+      if (typeof this.stories == "undefined") {
+        this.stories = [];
+      }
       this.stories.push(res);
     });
 
