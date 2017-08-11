@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {StoriesService} from "../services/stories.service";
 import {Story} from "../models/story.model";
+import {Subject} from "rxjs/Subject";
+import 'rxjs/add/operator/delay';
 
 @Component({
   selector: 'top-stories',
@@ -8,10 +10,11 @@ import {Story} from "../models/story.model";
   styleUrls: ['./top-stories.component.css']
 })
 export class TopStoriesComponent implements OnInit {
-  stories:Story[];
+  storyStream: Subject<Story> = new Subject();
+  stories: Story[] = [];
   constructor(private storiesService:StoriesService) {
-    this.storiesService.topStories.subscribe((res)=> {
-      this.stories = res;
+    this.storiesService.topStories.delay(500).subscribe((res) => {
+      this.stories.push(res);
     });
 
   }

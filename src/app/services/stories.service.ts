@@ -1,11 +1,13 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Story} from "../models/story.model";
 import "rxjs/add/operator/map";
+import {Subject} from "rxjs/Subject";
+import {Observable} from "rxjs/Rx";
 
 @Injectable()
 export class StoriesService {
-  topStories:EventEmitter<Story[]> = new EventEmitter();
+  topStories: Subject<Story> = new Subject();
   constructor(private http:Http) { }
 
   getTopStories(){
@@ -25,7 +27,9 @@ export class StoriesService {
 
       })
       .subscribe((res) => {
-        this.topStories.emit(res);
+        Observable.from(res).subscribe((story) => {
+          this.topStories.next(<Story>story);
+        });
       });
   }
 

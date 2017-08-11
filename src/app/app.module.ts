@@ -7,19 +7,19 @@ import {ServiceProvider} from "./providers/service.provider"
 import {HttpModule} from "@angular/http";
 import {CommentComponent} from './comment/comment.component';
 import {CommentListComponent} from './comment-list/comment-list.component';
-import {AnimateOnScrollModule} from 'ng2-animate-on-scroll';
+import {StoryComponent} from "./story/story.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     TopStoriesComponent,
     CommentComponent,
-    CommentListComponent
+    CommentListComponent,
+    StoryComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    AnimateOnScrollModule.forRoot()
   ],
   providers: [ServiceProvider],
   bootstrap: [AppComponent]
