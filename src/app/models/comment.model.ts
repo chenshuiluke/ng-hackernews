@@ -28,7 +28,7 @@ export class Comment{
       this.comments = [];
       for (var counter = 0; counter < result.comments.length; counter++) {
         var comment: any = result.comments[counter];
-        if (typeof comment.text != "undefined" && typeof comment.by != "undefined") {
+        if (comment.text != "undefined" && comment.by != "undefined") {
           this.comments.push(new Comment(comment));
         }
 
