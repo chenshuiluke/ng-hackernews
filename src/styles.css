@@ -15,3 +15,12 @@ a {
 .btn-spaced {
   margin: 5px;
 }
+
+.comment-button {
+  position: absolute;
+  right: 0;
+}
+
+comment-list {
+  width: 100%;
+}

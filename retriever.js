@@ -7,7 +7,7 @@ var top_stories_url = config.top_stories_url;
 var _ = require("underscore");
 var itemSort = function(a,b){
   if(a.kids && b.kids){
-    return b.kids.length- a.kids.length;
+    return a.kids.length - b.kids.length;
   }
   else{
     return 0;

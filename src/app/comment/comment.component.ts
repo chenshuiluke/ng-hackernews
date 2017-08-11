@@ -1,7 +1,8 @@
-import { Component, OnInit,Input } from '@angular/core';
-import { Comment } from '../models/comment.model';
+import {Component, Input, OnInit} from '@angular/core';
+import {Comment} from '../models/comment.model';
+
 @Component({
-  selector: 'comment',
+  selector: '[comment]',
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.css']
 })

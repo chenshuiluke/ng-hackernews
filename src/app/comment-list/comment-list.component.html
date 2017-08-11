@@ -1,16 +1,15 @@
-<a class="btn btn-warning" (click)="shown = !shown" *ngIf="comments">
-  <a *ngIf="!shown">
-    show
-  </a>
-  <a *ngIf="shown">
-    hide
-  </a>
-  <a> comments </a>
-</a>
-<ul *ngIf="shown">
-  <li *ngFor="let comment of comments">
-    <hr/>
-    <comment [comment]="comment"></comment>
+<div *ngIf="comments" class="comment-button">
+  <button class="button-clear " (click)="shown = !shown">
+    <span *ngIf="!shown">
+      show
+    </span>
+    <span *ngIf="shown">
+      hide
+    </span>
+    <span> comments </span>
+  </button>
+</div>
 
-  </li>
-</ul>
+<dl *ngIf="shown">
+  <dt comment *ngFor="let comment of comments" [comment]="comment"></dt>
+</dl>

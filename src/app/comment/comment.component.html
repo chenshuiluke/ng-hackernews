@@ -1,5 +1,5 @@
-<p class="inner" [innerHTML]="comment.text">
+<blockquote class="code prettyprint prettyprinted">
+  <div class="code-content" [innerHTML]="comment.text + '<br/> - ' + comment.by"></div>
+  <comment-list *ngIf="comment.comments" [comments]="comment.comments"></comment-list>
+</blockquote>
 
-</p>
-<p>- {{comment.by}}</p>
-<comment-list *ngIf="comment.comments" [comments]="comment.comments"></comment-list>
