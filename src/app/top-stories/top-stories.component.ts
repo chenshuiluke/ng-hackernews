@@ -30,4 +30,9 @@ export class TopStoriesComponent implements OnInit {
     this.storiesService.getTopStories();
   }
 
+  trackFn(index, item) {
+    return item.id;
+  }
+
+
 }

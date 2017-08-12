@@ -17,7 +17,7 @@ export class StoriesService {
         console.log(json);
 
         return json.filter((item) => {
-          if (typeof item.title != "undefined") {
+          if (typeof item != "undefined") {
             return item;
           }
         }).map((item) => {

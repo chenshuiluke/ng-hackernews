@@ -2,7 +2,7 @@
   Loading&hellip;
 </div>
 <div *ngIf="stories">
-  <div *ngFor="let story of stories">
+  <div *ngFor="let story of stories; trackBy: trackFn">
 
     <a [href]="story.url" [target]="'_blank'">{{story.title}}</a>
 

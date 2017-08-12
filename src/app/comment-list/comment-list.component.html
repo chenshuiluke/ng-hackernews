@@ -11,5 +11,5 @@
 </div>
 
 <dl *ngIf="shown">
-  <dt comment *ngFor="let comment of comments" [comment]="comment"></dt>
+  <dt comment *ngFor="let comment of comments; trackBy: trackFn" [comment]="comment"></dt>
 </dl>
