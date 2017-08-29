@@ -13,7 +13,7 @@ export class CommentListComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   trackFn(index, item) {
     return item.id;
   }

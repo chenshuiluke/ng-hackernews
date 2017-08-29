@@ -9,7 +9,12 @@ body{
 
 a {
   display: inline-block !important;
+  color: black !important;
   /*margin-left: 20px !important;*/
+}
+
+.button-clear {
+  color: black !important;
 }
 
 /*.comment-button {*/
