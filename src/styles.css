@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 ul{
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 body{
@@ -23,5 +23,10 @@ a {
 /*}*/
 
 comment-list {
-  width: 100%;
+  width: 100% !important;
+}
+
+blockquote {
+  color: black !important;
+  border-left: .3rem solid black !important;
 }

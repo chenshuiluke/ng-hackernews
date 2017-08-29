@@ -19,9 +19,9 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "",
       "styles": [
-        "styles.css",
         "animate.css",
-        "../node_modules/milligram/dist/milligram.min.css"
+        "../node_modules/milligram/dist/milligram.min.css",
+        "styles.css"
       ],
       "scripts": [
       ],
