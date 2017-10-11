@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, EventEmitter} from '@angular/core';
 import {StoriesService} from "../services/stories.service";
 import {Story} from "../models/story.model";
 import {Subject} from "rxjs/Subject";
@@ -12,22 +12,19 @@ import {Observable} from "rxjs/Observable";
   styleUrls: ['./top-stories.component.css']
 })
 export class TopStoriesComponent implements OnInit {
-  storyStream: Subject<Story> = new Subject();
   stories: Story[];
   constructor(private storiesService:StoriesService) {
-    Observable.zip(this.storiesService.topStories, Observable.timer(0, 100), (story, i) => {
-      return story;
-    })
-      .subscribe((story) => {
-        if (typeof this.stories == "undefined") {
+    this.storiesService.topStories.subscribe((story:Story) => {
+      if (typeof this.stories == "undefined") {
         this.stories = [];
       }
-        this.stories.push(story)
+      this.stories.push(story)
     });
   }
 
   ngOnInit() {
     this.storiesService.getTopStories();
+    console.log("Started getting top stories");
   }
 
   trackFn(index, item) {

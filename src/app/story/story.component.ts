@@ -13,6 +13,7 @@ export class StoryComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(`Story: ${this.story}`);
   }
 
 }

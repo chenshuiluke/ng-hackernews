@@ -24,15 +24,9 @@ export class Comment{
     this.url = result.url;
     this.text = result.text;
 
-    if (result.comments) {
+    if(this.descendants > 0 || (this.kids && this.kids.length > 0)){
       this.comments = [];
-      for (var counter = 0; counter < result.comments.length; counter++) {
-        var comment: any = result.comments[counter];
-        if (comment.text != "undefined" && comment.by != "undefined") {
-          this.comments.push(new Comment(comment));
-        }
-
-      }
     }
+    console.log(this);
   }
 }

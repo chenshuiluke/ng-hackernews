@@ -9,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start-app": "ng build && node server.js",
-    "start-app-prod": "ng build --prod --env=prod && node server.js"
+    "start-app": "ng serve",
+    "start-app-prod": "ng serve --prod --env=prod"
   },
   "private": true,
   "dependencies": {
@@ -23,17 +23,13 @@
     "@angular/platform-browser": "^4.3.4",
     "@angular/platform-browser-dynamic": "^4.3.4",
     "@angular/router": "^4.3.4",
-    "axios": "^0.16.2",
-    "body-parser": "^1.17.2",
     "core-js": "^2.4.1",
     "enhanced-resolve": "^3.3.0",
-    "express": "^4.15.4",
     "hackernews-api": "^1.0.0",
     "milligram": "^1.3.0",
-    "mongodb": "^2.2.31",
-    "morgan": "^1.8.2",
     "ng2-animate-on-scroll": "^1.0.3",
     "rxjs": "^5.4.3",
+    "rxjs-ratelimiter": "^0.1.1",
     "underscore": "^1.8.3",
     "zone.js": "^0.8.4"
   },

@@ -30,11 +30,8 @@ export class Story{
       this.url = "https://news.ycombinator.com/item?id=" + this.id;
     }
 
-    if (result.comments !== undefined) {
+    if(this.descendants > 0){
       this.comments = [];
-      for (var counter = 0; counter < result.comments.length; counter++) {
-        this.comments.push(new Comment(result.comments[counter]));
-      }
     }
   }
 }
