@@ -21,7 +21,8 @@
       "styles": [
         "animate.css",
         "../node_modules/milligram/dist/milligram.min.css",
-        "styles.css"
+        "styles.css",
+        "assets/stylesheets/source_code_pro.css"
       ],
       "scripts": [
       ],

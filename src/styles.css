@@ -30,3 +30,10 @@ blockquote {
   color: black !important;
   border-left: .3rem solid black !important;
 }
+
+a, button, button *{
+  font-family: 'Source Code Pro', monospace;
+  font-size:14px;
+  text-transform: initial;
+  font-weight: 300
+}
