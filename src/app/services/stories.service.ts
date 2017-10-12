@@ -25,12 +25,13 @@ export class StoriesService {
     .subscribe((json) => {
     
       console.log(json);
+      let chain:any = Promise.resolve();
       json.map((item) => {
-        this.getStory(item).then((story:Story) => {
-          this.topStories.emit(story);
-        })
-        .catch((err)=>{
-          console.log(err);
+        chain = chain.then(() => {
+          return this.getStory(item)
+          .then((story:Story) => {
+            this.topStories.emit(story);
+          })
         });
       })
 
@@ -39,9 +40,7 @@ export class StoriesService {
 
   getStory(id:number){
     return new Promise((resolve, reject) => {
-      this.rateLimiter.limit(
       this.http.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
-      )
       .subscribe((res:Response) =>{
         let json = res.json();
         let story:Story = new Story(json);
