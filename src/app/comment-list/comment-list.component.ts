@@ -11,10 +11,17 @@ export class CommentListComponent implements OnInit {
   @Input() comments:Comment[];
   @Input('parent-item') parent:Story|Comment;
   shown: boolean = false;
+  num:number = 0;
   constructor(private storiesService:StoriesService) { }
 
   ngOnInit() {
     console.log(`Parent: ${this.parent}`);
+    if(this.parent.descendants){
+      this.num = this.parent.descendants;
+    }
+    else if(this.parent.kids){
+      this.num = this.parent.kids.length;
+    }
   }
 
   trackFn(index, item) {
