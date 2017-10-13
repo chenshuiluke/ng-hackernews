@@ -5,16 +5,22 @@ ul{
 }
 
 body{
+  background-color: #0076C9;
+}
+
+h1{
+  color:white;
 }
 
 a {
   display: inline-block !important;
-  color: black !important;
+  color: white !important;
   /*margin-left: 20px !important;*/
+  font-size: 13px;
 }
 
 .button-clear {
-  color: black !important;
+  color: white !important;
 }
 
 /*.comment-button {*/
@@ -27,13 +33,52 @@ comment-list {
 }
 
 blockquote {
-  color: black !important;
-  border-left: .3rem solid black !important;
+  color: white !important;
+  border-left: .3rem solid white !important;
+}
+
+a.top-story-link, #site-heading{
+  font-size: 27px;
+  position:relative;
+}
+
+a.top-story-link:before, #site-heading:before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+a.top-story-link:hover:before, #site-heading:hover:before{
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
+blockquote *{
+  font-weight: 600;
+  font-size: 13px;
 }
 
 a, button, button *{
-  font-family: 'Source Code Pro', monospace;
-  font-size:14px;
-  text-transform: initial;
-  font-weight: 300
+  font-family:'Open Sans', sans-serif;
+  color:#fefefe;
+  text-transform:lowercase;
+  font-weight: 600;
 }
+
+@media (max-width: 800px) {
+  a.top-story-link{
+    font-size: 16px;
+  }
+}
+
+

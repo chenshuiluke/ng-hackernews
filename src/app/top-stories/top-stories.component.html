@@ -2,9 +2,9 @@
   Loading&hellip;
 </div>
 <div *ngIf="stories">
-  <div *ngFor="let story of stories; trackBy: trackFn">
+  <div *ngFor="let story of stories; trackBy: trackFn" class="animated fadeInDown">
 
-    <a [href]="story.url" [target]="'_blank'">{{story.title}}</a>
+    <a class="top-story-link" [href]="story.url" [target]="'_blank'">{{story.title}}</a>
 
     <comment-list [comments]="story.comments" [parent-item]="story"></comment-list>
   </div>
