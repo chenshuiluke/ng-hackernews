@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {Comment} from '../models/comment.model';
 
 @Component({
@@ -7,6 +7,7 @@ import {Comment} from '../models/comment.model';
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
+  @ViewChild('commentButton') commentButton;
   @Input() comment:Comment;
   constructor() { }
 

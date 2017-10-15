@@ -4,11 +4,23 @@
 <div *ngIf="stories">
   <div *ngFor="let story of stories; trackBy: trackFn" class="animated fadeInDown">
 
-    <a class="top-story-link" [href]="story.url" [target]="'_blank'">{{story.title}}</a>
+    <div class="container">
+      <div class="row">
+        <div class="column column-75">
+          <a class="top-story-link" [href]="story.url" [target]="'_blank'">{{story.title}}</a>
+        </div>
+        <div class="column column-25">
+          <comment-list-button [parent-item]="story" #commentButton></comment-list-button>
 
-    <comment-list [comments]="story.comments" [parent-item]="story"></comment-list>
+        </div>
+      </div>
+      <comment-list *ngIf="story.comments" [shownInput]="commentButton.shownEmitter" [comments]="story.comments" [parent-item]="story"></comment-list>
+    </div>
+
+
+
+
   </div>
 
 
 </div>
-

@@ -1,0 +1,11 @@
+<div class="comment-button" *ngIf="parent.comments">
+    <button class="button-clear " (click)="toggleShowComments()">
+      <span *ngIf="!shown">
+        show
+      </span>
+      <span *ngIf="shown">
+        hide
+      </span>
+      <span> comments ({{num}})</span>
+    </button>
+  </div>

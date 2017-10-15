@@ -8,6 +8,7 @@ import {HttpModule} from "@angular/http";
 import {CommentComponent} from './comment/comment.component';
 import {CommentListComponent} from './comment-list/comment-list.component';
 import {StoryComponent} from "./story/story.component";
+import { CommentListButtonComponent } from './comment-list-button/comment-list-button.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {StoryComponent} from "./story/story.component";
     TopStoriesComponent,
     CommentComponent,
     CommentListComponent,
-    StoryComponent
+    StoryComponent,
+    CommentListButtonComponent
   ],
   imports: [
     BrowserModule,

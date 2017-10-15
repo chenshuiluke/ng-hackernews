@@ -1,15 +1,3 @@
-<div *ngIf="comments" class="comment-button">
-  <button class="button-clear " (click)="toggleShowComments()">
-    <span *ngIf="!shown">
-      show
-    </span>
-    <span *ngIf="shown">
-      hide
-    </span>
-    <span> comments ({{num}})</span>
-  </button>
-</div>
-
 <dl *ngIf="shown">
   <dt *ngIf="comments.length === 0">Loading</dt>
   <dt comment *ngFor="let comment of comments; trackBy: trackFn" [comment]="comment"></dt>

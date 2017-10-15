@@ -5,22 +5,27 @@ ul{
 }
 
 body{
-  background-color: #0076C9;
+  background-color: white;
 }
 
 h1{
-  color:white;
+  color:#207EE0;
+}
+
+#github-star{
+  padding-left: 30px;
+  padding-right: 30px
 }
 
 a {
   display: inline-block !important;
-  color: white !important;
+  color: #207EE0 !important;
   /*margin-left: 20px !important;*/
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .button-clear {
-  color: white !important;
+  color: #207EE0 !important;
 }
 
 /*.comment-button {*/
@@ -33,13 +38,19 @@ comment-list {
 }
 
 blockquote {
-  color: white !important;
-  border-left: .3rem solid white !important;
+  color: #A3A3A3 !important;
+  border-left: .3rem solid #207EE0 !important;
 }
 
-a.top-story-link, #site-heading{
+#site-heading{
   font-size: 27px;
   position:relative;
+}
+
+a.top-story-link{
+  font-size: 14px;
+  padding: 5px;
+  color: #A3A3A3 !important;
 }
 
 a.top-story-link:before, #site-heading:before{
@@ -49,7 +60,7 @@ a.top-story-link:before, #site-heading:before{
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: white;
+  background-color: #207EE0;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -63,22 +74,31 @@ a.top-story-link:hover:before, #site-heading:hover:before{
   transform: scaleX(1);
 }
 
+
+a, button, button *{
+  font-family:'Open Sans', sans-serif;
+  color:#207EE0;
+  text-transform:lowercase;
+  font-weight: 600;
+}
+
+blockquote button *{
+  font-size:11px;
+  color:#207EE0 !important;
+}
 blockquote *{
   font-weight: 600;
   font-size: 13px;
 }
 
-a, button, button *{
-  font-family:'Open Sans', sans-serif;
-  color:#fefefe;
-  text-transform:lowercase;
-  font-weight: 600;
-}
-
 @media (max-width: 800px) {
   a.top-story-link{
-    font-size: 16px;
+    font-size: 14px;
   }
+}
+
+.right-aligned{
+  float: right;
 }
 
 

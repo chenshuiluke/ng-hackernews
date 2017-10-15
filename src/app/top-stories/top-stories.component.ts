@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter} from '@angular/core';
+import {Component, OnInit, EventEmitter, ViewChild} from '@angular/core';
 import {StoriesService} from "../services/stories.service";
 import {Story} from "../models/story.model";
 import {Subject} from "rxjs/Subject";
@@ -12,6 +12,7 @@ import {Observable} from "rxjs/Observable";
   styleUrls: ['./top-stories.component.css']
 })
 export class TopStoriesComponent implements OnInit {
+  @ViewChild('commentButton') commentButton;
   stories: Story[];
   constructor(private storiesService:StoriesService) {
     this.storiesService.topStories.subscribe((story:Story) => {
