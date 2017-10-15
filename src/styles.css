@@ -38,7 +38,7 @@ comment-list {
 }
 
 blockquote {
-  color: #A3A3A3 !important;
+  color: black !important;
   border-left: .3rem solid #207EE0 !important;
 }
 
@@ -50,7 +50,7 @@ blockquote {
 a.top-story-link{
   font-size: 14px;
   padding: 5px;
-  color: #A3A3A3 !important;
+  color: black !important;
 }
 
 a.top-story-link:before, #site-heading:before{
@@ -97,6 +97,11 @@ blockquote *{
   }
   #github-star{
     padding: 0px;
+    display:none;
+  }
+  button{
+    padding: 3px;
+    margin: 0px;
   }
 }
 
