@@ -95,6 +95,9 @@ blockquote *{
   a.top-story-link{
     font-size: 14px;
   }
+  #github-star{
+    padding: 0px;
+  }
 }
 
 .right-aligned{
