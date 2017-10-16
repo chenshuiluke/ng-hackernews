@@ -98,7 +98,7 @@ blockquote *{
 
 @media (max-width: 800px) {
   a.top-story-link{
-    font-size: 14px;
+    font-size: 15px;
   }
   #github-star{
     padding: 0px;
