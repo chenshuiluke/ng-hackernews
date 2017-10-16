@@ -48,9 +48,10 @@ blockquote {
 }
 
 a.top-story-link{
-  font-size: 14px;
+  font-size: 20px;
   padding: 5px;
   color: black !important;
+  font-weight: 300
 }
 
 a.top-story-link:before, #site-heading:before{
@@ -79,16 +80,20 @@ a, button, button *{
   font-family:'Open Sans', sans-serif;
   color:#207EE0;
   text-transform:lowercase;
-  font-weight: 600;
+}
+
+button{
+  font-size: 14px;
 }
 
 blockquote button *{
-  font-size:11px;
+  font-size:14px;
   color:#207EE0 !important;
+  font-weight: 700;
 }
 blockquote *{
-  font-weight: 600;
-  font-size: 13px;
+  font-size: 16px;
+  font-weight: 300
 }
 
 @media (max-width: 800px) {
