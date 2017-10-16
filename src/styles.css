@@ -108,6 +108,11 @@ blockquote *{
     padding: 3px;
     margin: 0px;
   }
+
+  .row .column.column-75{
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
 }
 
 .right-aligned{
