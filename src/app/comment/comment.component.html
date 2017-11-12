@@ -1,4 +1,5 @@
-<blockquote class="code prettyprint prettyprinted">
+<blockquote *ngIf="collapsed" (click)="expand()" class="hidden code prettyprint prettyprinted">Hidden</blockquote>
+<blockquote *ngIf="!collapsed" (click)="collapse($event)" class="code prettyprint prettyprinted">
   <div class="code-content" [innerHTML]="comment.text + '<br/> - ' + comment.by"></div>
   <comment-list-button [parent-item]="comment" #commentButton></comment-list-button>
   <comment-list *ngIf="comment.comments" [shownInput]="commentButton.shownEmitter" [comments]="comment.comments" [parent-item]="comment"></comment-list>

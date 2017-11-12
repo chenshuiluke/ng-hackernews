@@ -9,9 +9,20 @@ import {Comment} from '../models/comment.model';
 export class CommentComponent implements OnInit {
   @ViewChild('commentButton') commentButton;
   @Input() comment:Comment;
+  collapsed:boolean = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  collapse(event){
+    console.log(event);
+    if(event.layerX < 10){
+      this.collapsed = true;
+    }
+  }
+  expand(){
+    this.collapsed = false;
   }
 
 }

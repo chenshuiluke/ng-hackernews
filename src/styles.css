@@ -39,7 +39,15 @@ comment-list {
 
 blockquote {
   color: black !important;
-  border-left: .3rem solid #207EE0 !important;
+  border-left: 10px solid #207EE0 !important;
+  position:relative;
+}
+
+blockquote.hidden{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-left-width: 0px !important;
+  margin: 0px;
 }
 
 #site-heading{
