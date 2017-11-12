@@ -15,11 +15,14 @@ export class CommentComponent implements OnInit {
   ngOnInit() {
   }
 
-  collapse(event){
+  collapseFromBorder(event){
     console.log(event);
     if(event.layerX < 10){
       this.collapsed = true;
     }
+  }
+  collapse(){
+    this.collapsed = true;
   }
   expand(){
     this.collapsed = false;
