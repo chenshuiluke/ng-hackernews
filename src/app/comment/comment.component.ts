@@ -19,13 +19,16 @@ export class CommentComponent implements OnInit {
     console.log(event);
     if(event.layerX < 10){
       this.collapsed = true;
+      event.stopPropagation();
     }
   }
-  collapse(){
+  collapse(event){
     this.collapsed = true;
+    event.stopPropagation();
   }
-  expand(){
+  expand(event){
     this.collapsed = false;
+    event.stopPropagation();
   }
 
 }
