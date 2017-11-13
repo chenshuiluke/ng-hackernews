@@ -48,6 +48,7 @@ blockquote.hidden{
   padding-bottom: 0px;
   border-left-width: 0px !important;
   margin: 0px;
+  font-size: 9px;
 }
 
 #site-heading{
