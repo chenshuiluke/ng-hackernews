@@ -1,5 +1,5 @@
 <div class="comment-button" *ngIf="parent.comments">
-    <button class="button-clear " (click)="toggleShowComments()">
+    <button class="button-clear " (click)="toggleShowComments($event)">
       <span *ngIf="!shown">
         show
       </span>

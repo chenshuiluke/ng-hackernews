@@ -22,9 +22,10 @@ export class CommentListButtonComponent implements OnInit {
     }
   }
 
-  toggleShowComments(){
+  toggleShowComments(event){
     this.shown = !this.shown;
     this.shownEmitter.emit(this.shown);
+    event.stopPropagation();
   }
 
 }
