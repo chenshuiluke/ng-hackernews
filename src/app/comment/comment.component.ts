@@ -20,12 +20,15 @@ export class CommentComponent implements OnInit {
     if(event.layerX < 10){
       this.collapsed = true;
       event.stopPropagation();
+      event.target.scrollIntoView();
     }
   }
+
   collapse(event){
     this.collapsed = true;
     event.stopPropagation();
   }
+  
   expand(event){
     this.collapsed = false;
     event.stopPropagation();
