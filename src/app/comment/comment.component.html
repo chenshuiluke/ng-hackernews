@@ -1,4 +1,4 @@
-<blockquote *ngIf="collapsed" (click)="expand($event)" class="hidden">+</blockquote>
+<a *ngIf="collapsed" (click)="expand($event)" class="hidden">+</a>
 <blockquote *ngIf="!collapsed" (click)="collapseFromBorder($event)" class="code prettyprint prettyprinted">
   <a class="hide-button" (click)="collapse($event)">-hide-</a>
   <div class="code-content" [innerHTML]="comment.text + '<br/> - ' + comment.by"></div>
