@@ -88,7 +88,7 @@ a.top-story-link:hover:before, #site-heading:hover:before{
 a, button, button *{
   font-family:'Open Sans', sans-serif;
   color:#207EE0;
-  text-transform:lowercase;
+  /*text-transform:lowercase;*/
 }
 
 button{
