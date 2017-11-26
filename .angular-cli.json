@@ -21,7 +21,8 @@
       "styles": [
         "../node_modules/milligram/dist/milligram.min.css",
         "styles.css",
-        "assets/stylesheets/source_code_pro.css"
+        "assets/stylesheets/built-titling.css",
+        "assets/stylesheets/cardiff.css"
       ],
       "scripts": [
       ],

@@ -57,10 +57,12 @@ a.hidden{
 }
 
 a.top-story-link{
-  font-size: 20px;
+  letter-spacing: 1px;
+  font-size: 30px;
   padding: 5px;
   color: black !important;
-  font-weight: 300
+  font-weight: 300;
+  font-family:'Built-Titling';
 }
 
 a.top-story-link:before, #site-heading:before{
@@ -86,7 +88,7 @@ a.top-story-link:hover:before, #site-heading:hover:before{
 
 
 a, button, button *{
-  font-family:'Open Sans', sans-serif;
+  font-family:Cardiff;
   color:#207EE0;
   /*text-transform:lowercase;*/
 }
