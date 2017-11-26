@@ -57,12 +57,11 @@ a.hidden{
 }
 
 a.top-story-link{
-  letter-spacing: 1px;
-  font-size: 30px;
+  font-size: 20px;
   padding: 5px;
   color: black !important;
   font-weight: 300;
-  font-family:'Built-Titling';
+  font-family:Cardiff;
 }
 
 a.top-story-link:before, #site-heading:before{
@@ -104,7 +103,8 @@ blockquote button *{
 }
 blockquote *{
   font-size: 16px;
-  font-weight: 300
+  font-weight: 300;
+  font-family: Cardiff;
 }
 
 @media (max-width: 800px) {
